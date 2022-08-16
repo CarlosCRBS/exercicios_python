@@ -60,18 +60,26 @@ def excluiContato(nomeCont):
 
 def excluiTelefone(numTel):
     agenda = contatos
-    for contato in agenda:
+    listaAux = []
+    numUnico = 0
+    for contato in contatos:
         #print(f"{user} - {contatos.get(user)}")
-        for tel in agenda.get(contato):
+        for tel in contatos.get(contato):
             if tel == numTel:
-                if len(agenda.get(contato)) > 1:
-                    print(f"{contato} - {tel} - {len(agenda.get(contato))}")
+                if len(contatos.get(contato)) > 1:
+                    print(f"{contato} - {tel} - {len(contatos.get(contato))}")
                     contatos.get(contato).remove(tel)
                     print(f"Número excluído.")
                     
                 else:
-                    print(f"{contato} - {tel} - {len(agenda.get(contato))}")
-                    excluiContato(contato)
+                    print(f"{contato} - {tel} - {len(contatos.get(contato))}")
+                    #excluiContato(contato)
+                    numUnico = 1
+                    listaAux.append(contato)
+
+    if numUnico == 1:
+         for i in range(len(listaAux)):
+            excluiContato(listaAux[i])  
 
     print(contatos)
         
@@ -85,8 +93,10 @@ incluiContatoAvancado('Ione', '051984010101', '05132598888', '05140040100')
 incluiContatoAvancado('Aline', '051991067875')
 incluiContatoAvancado('Carlos', '051991957516', '05133409628')
 incluiContatoAvancado('Elci', '05133409628')
-excluiTelefone('05140040100')
+
 excluiTelefone('05133409628')
+excluiTelefone('05140040100')
+excluiTelefone('051991957516')
 
 """
 incluiContato()
@@ -101,46 +111,3 @@ excluiTelefone('05140040100')
 """
 
 
-"""
-def excluiTelefone():
-
-def excluiContato():
-
-def consultaContato():
-
-
-def calculaMedia (nome):
-    notas = aluno.setdefault(nome_aluno)
-    #print(len(notas))
-    media = 0
-
-    for i in range(len(notas)):
-        media = media + notas[i]
-
-    media = media / len(notas)
-
-    return media
-
-
-while True:
-    nome_aluno = str(input("Informe o nome do Aluno (N para terminar): "))
-    if nome_aluno == 'N':
-        break
-    numero_1 = float(input("Entre a primeira nota. "))  
-    numero_2 = float(input("Entre a segunda nota. "))
-
-    aluno.update({nome_aluno:(numero_1, numero_2)})
-    #print(aluno)
-
-print(aluno)
-
-
-while True:
-    nome_aluno = str(input("Informe o nome do Aluno: "))
-    if nome_aluno in aluno:
-        break
-
-valor = calculaMedia(nome_aluno)
-
-
-"""
