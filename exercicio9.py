@@ -1,9 +1,9 @@
 import math
-#import re
+import re
 
 
-equacao = str(input("Informe a equação do segundo grau para determinarmos suas raízes (ax^2+bx+c): "))  
-#equacao = "1x^2-4=0"
+#equacao = str(input("Informe a equação do segundo grau para determinarmos suas raízes (ax^2+bx+c): "))  
+equacao = r"1x^2-4x-25=0"
 
 print(equacao)
 
@@ -14,7 +14,11 @@ print(equacao)
        #     print(a)
 #    print(posicao)
 
+padrao = 'x^2'
+lista = re.split(padrao, equacao)
+print(lista)
 
+saida = re.
 
 print(equacao.find('x^2'))
 
